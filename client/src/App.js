@@ -1,5 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Budget from "./pages/Budget";
+import BudgetCreate from "./pages/BudgetCreate";
+import HistoryBudget from "./pages/HistoryBudget";
+import Overview from "./pages/Overview";
+import WishList from "./pages/WishList";
 import Books from "./pages/Books";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
