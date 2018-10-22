@@ -25,42 +25,42 @@ class BudgetCreate extends Component {
                             <h1>Add an Income or Expense in my Budget</h1>
                         </Jumbotron>
                         <form>
-                            <ExpIncBox
+                            <expIncBox
                                 disabled={!(this.state.author && this.state.title)}
                                 onClick={this.handleFormSubmit}
                             >
                                 Income
-              </ExpIncBox>
-                            <ExpIncBox
+                            </expIncBox>
+                            <expIncBox
                                 disabled={!(this.state.author && this.state.title)}
                                 onClick={this.handleFormSubmit}
                             >
                                 Expense
-              </ExpIncBox>
-                            <Input
+              </expIncBox>
+                            <input
                                 value={this.state.title}
                                 onChange={this.handleInputChange}
                                 name="title"
                                 placeholder="Title (required)"
                             />
-                            <Input
+                            <input
                                 value={this.state.author}
                                 onChange={this.handleInputChange}
                                 name="author"
                                 placeholder="Author (required)"
                             />
-                            <TextArea
+                            <textArea
                                 value={this.state.synopsis}
                                 onChange={this.handleInputChange}
                                 name="synopsis"
                                 placeholder="Synopsis (Optional)"
                             />
-                            <FormBtn
+                            <formBtn
                                 disabled={!(this.state.author && this.state.title)}
                                 onClick={this.handleFormSubmit}
                             >
                                 Submit Book
-              </FormBtn>
+              </formBtn>
                         </form>
                     </Col>
                     <Col size="md-6 sm-12">
@@ -68,18 +68,18 @@ class BudgetCreate extends Component {
                             <h1>Books On My List</h1>
                         </Jumbotron>
                         {this.state.books.length ? (
-                            <List>
+                            <list>
                                 {this.state.books.map(book => (
-                                    <ListItem key={book._id}>
-                                        <Link to={"/books/" + book._id}>
+                                    <listItem key={book._id}>
+                                        <link to={"/books/" + book._id}>
                                             <strong>
                                                 {book.title} by {book.author}
                                             </strong>
-                                        </Link>
-                                        <DeleteBtn onClick={() => this.deleteBook(book._id)} />
-                                    </ListItem>
+                                        </link>
+                                        <deleteBtn onClick={() => this.deleteBook(book._id)} />
+                                    </listItem>
                                 ))}
-                            </List>
+                            </list>
                         ) : (
                                 <h3>No Results to Display</h3>
                             )}
@@ -90,4 +90,4 @@ class BudgetCreate extends Component {
     };
 }
 
-    export default BudgetCreate;
+export default BudgetCreate;
