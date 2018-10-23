@@ -9,13 +9,18 @@ import Books from "./pages/Books";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import Home from "./components/Home";
+import AuthenticatedComponent from "./components/authenticateUser";
+import Login from "./components/Login";
 
 const App = () => (
   <Router>
     <div>
       <Nav />
       <Switch>
-        <Route exact path="/" component={Books} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/auth" component={AuthenticatedComponent} />
         <Route exact path="/books" component={Books} />
         <Route exact path="/books/:id" component={Detail} />
         <Route component={NoMatch} />
