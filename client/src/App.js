@@ -12,6 +12,7 @@ import Nav from "./components/Nav";
 import Home from "./components/Home";
 import AuthenticatedComponent from "./components/authenticateUser";
 import Login from "./components/Login";
+import Protected from "./components/Protected";
 
 const App = () => (
   <Router>
@@ -21,6 +22,9 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/auth" component={AuthenticatedComponent} />
+        <AuthenticatedComponent>
+          <Route exact path="/Protected" component={Protected} />
+        </AuthenticatedComponent>
         <Route exact path="/books" component={Books} />
         <Route exact path="/books/:id" component={Detail} />
         <Route component={NoMatch} />
