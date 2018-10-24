@@ -5,7 +5,7 @@ const db = require("../models");
 
 mongoose.connect(
     process.env.MONGODB_URI ||
-    "mongodb://localhost/reacttransactionlist"
+    "mongodb://localhost/seedtransactionlist"
 );
 
 const transactionSeed = [
@@ -22,63 +22,40 @@ const transactionSeed = [
             date: new Date(Date.now())
         }
     },
+
     {
         name: "Jane Cake",
-        userName: "Cookie",
+        userName: "Cooki",
         password: "1234",
         transactions: {
             IncExp: false,
             amount: 50,
-            category: "Clothes",
+            category: "Expenses",
             description:
-                "New soccer shoes",
+                "shoes",
             date: new Date(Date.now())
         }
     },
+
     {
         name: "Jane Cake",
-        userName: "Cookie",
-        password: "1234",
-        transactions: {
-            IncExp: true,
-            amount: 10,
-            category: "Chores",
-            description:
-                "Walked John's dog",
-            date: new Date(Date.now())
-        }
-    },
-    {
-        name: "Jane Cake",
-        userName: "Cookie",
+        userName: "Cooki",
         password: "1234",
         transactions: {
             IncExp: false,
-            amount: 5,
+            amount: 40,
             category: "Expenses",
             description:
-                "Movie ticket",
+                "shoes",
             date: new Date(Date.now())
         }
-    },
-    {
-        name: "John Dough",
-        userName: "Dojo",
-        password: "1234",
-        transactions: {
-            IncExp: true,
-            amount: 100,
-            category: "Allowances",
-            description:
-                "November pocket money",
-            date: new Date(Date.now())
-        }
-    },
+    }
 ];
 
-db.Transaction
+
+db.UserModel
     .remove({})
-    .then(() => db.Transaction.collection.insertMany(transactionSeed))
+    .then(() => db.UserModel.collection.insertMany(transactionSeed))
     .then(data => {
         console.log(data.result.n + " records inserted!");
         process.exit(0);
