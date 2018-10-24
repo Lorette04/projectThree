@@ -9,16 +9,16 @@ const transactionSchema = new Schema({
    // accountNumber: {transactionSchema},
 
    transaction: {
-       default: { type: Boolean, required: true},
-       amount: { type: Number, requird: true},
+       default: { type: Boolean, unique: true, required: true},
+       amount: { type: Number, required: true},
        category: { type: String, required: true },
        description: { type: String},
        date: { type: Date, required: true }
    }},
   );
 
-const Transaction = mongoose.model("Transaction", transactionSchema);
+const transactionModel = mongoose.model("Transaction", transactionSchema);
 
-module.exports = Transaction;
+module.exports = transactionModel;
 
 
