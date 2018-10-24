@@ -14,12 +14,5 @@ router
   .delete(booksController.remove);
 
 
-  // Creates expense or income "/api/books/:id"
-router
-.route("/:id")
-.get(booksController.findById)
-.post(booksController.create)
-.put(booksController.update)
-.delete(booksController.remove);
 
 module.exports = router;
