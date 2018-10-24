@@ -13,12 +13,13 @@ router
   .put(booksController.update)
   .delete(booksController.remove);
 
-// Creates expense or income "/api/books/:id"
+
+  // Creates expense or income "/api/books/:id"
 router
-  .route("/:id")
-  .get(booksController.findById)
-  .post(booksController.create)
-  .put(booksController.update)
-  .delete(booksController.remove);
+.route("/:id")
+.get(booksController.findById)
+.post(booksController.create)
+.put(booksController.update)
+.delete(booksController.remove);
 
 module.exports = router;

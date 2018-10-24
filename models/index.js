@@ -1,4 +1,4 @@
 module.exports = {
-  Book: require("./book")
-  // Budget: require("./budget")
+  // Book: require("./book"),
+  UserModel: require("./user"),
 };
