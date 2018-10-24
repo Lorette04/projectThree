@@ -12,6 +12,7 @@ import Nav from "./components/Nav";
 import Home from "./components/Home";
 import AuthenticatedComponent from "./components/authenticateUser";
 import Login from "./components/Login";
+import Create from "./components/Create";
 /* import Protected from "./components/Protected";
  */
 const App = () => (
@@ -21,6 +22,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/create" component={Create} />
         <Route exact path="/auth" component={AuthenticatedComponent} />
         <AuthenticatedComponent>
           <Route exact path="/Protected" /* component={Protected} */ />

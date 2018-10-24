@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { getJWT } from "./helpers/jwt";
-import { withRouter } from "react-router-dom";
+/* import { getJWT } from "./helpers/jwt";
+ */ import { withRouter } from "react-router-dom";
 import axios from "axios";
 
 class AuthenticatedComponent extends Component {

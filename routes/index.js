@@ -1,4 +1,4 @@
-require("dotenv").config();
+/* require("dotenv").config();
 const express = require("express");
 const app = new express();
 
@@ -101,12 +101,11 @@ app.get(
 );
 
 const PORT = process.env.PORT || 4000;
-app.listen(PORT);
+app.listen(PORT); */
 
-/* const path = require("path");
+const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
-
 
 // API Routes
 router.use("/api", apiRoutes);
@@ -117,4 +116,3 @@ router.use(function(req, res) {
 });
 
 module.exports = router;
- */
