@@ -2,19 +2,32 @@ import React, { Component } from "react";
 import ExpIncBox from "../../components/BudgetForm";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
-import API from "../../utils/API";
+import API from "../../utils/transactionAPI";
 
 class BudgetCreate extends Component {
     state = {
-        income: true,
-        expense: false,
-        date: [],
+        default: true,
+        amount: [],
         category: "",
         description: "",
-        price: "",
-
+        date: Date,
     };
 
+    handleFormSubmit = event => {
+        event.preventDefault();
+        const that = this.state
+        if (that.default && that.amount && that.category && that.date) {
+          API.saveTransaction({
+            default: this.state.default,
+            amount: this.state.amount,
+            category: this.state.category,
+            description: this.state.description,
+            date: this.state.date
+          })
+            .then(res => this.loadTransactions())
+            .catch(err => console.log(err));
+        }
+      };
 
     render() {
         return (
@@ -26,22 +39,22 @@ class BudgetCreate extends Component {
                         </Jumbotron>
                         <form>
                             <expIncBox
-                                disabled={!(this.state.author && this.state.title)}
+                                enabled={(this.state.default)}
                                 onClick={this.handleFormSubmit}
                             >
                                 Income
-              </expIncBox>
+                            </expIncBox>
                             <expIncBox
-                                disabled={!(this.state.author && this.state.title)}
+                                disabled={!(this.state.default)}
                                 onClick={this.handleFormSubmit}
                             >
                                 Expense
               </expIncBox>
                             <input
-                                value={this.state.title}
+                                value={this.state.category}
                                 onChange={this.handleInputChange}
-                                name="title"
-                                placeholder="Title (required)"
+                                name="category"
+                                placeholder="Category (required)"
                             />
                             <input
                                 value={this.state.author}
@@ -65,22 +78,21 @@ class BudgetCreate extends Component {
                     </Col>
                     <Col size="md-6 sm-12">
                         <Jumbotron>
-                            <h1>Books On My List</h1>
+                            <h1>Last transactions</h1>
                         </Jumbotron>
-                        {this.state.books.length ? (
+                        {this.state.default.true ? (
                             <list>
-                                {this.state.books.map(book => (
-                                    <listItem key={book._id}>
-                                        <link to={"/books/" + book._id}>
+                                {this.state.default.map(transaction => (
+                                    <listItem key={transaction._id}>
+                                        <link to={"/history/" + transaction._id}>
                                             <strong>
-                                                {book.title} by {book.author}
+                                                {transaction.category} - {transaction.amount} - {transaction.date}
                                             </strong>
                                         </link>
-                                        <deleteBtn onClick={() => this.deleteBook(book._id)} />
+                                        <deleteBtn onClick={() => this.deleteTransaction(transaction._id)} />
                                     </listItem>
                                 ))}
                             </list>
-
                         ) : (
                                 <h3>No Results to Display</h3>
                             )}
