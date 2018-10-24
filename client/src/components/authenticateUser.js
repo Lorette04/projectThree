@@ -10,13 +10,30 @@ class AuthenticatedComponent extends Component {
   }
 
   componentDidMount() {
-    const jwt = getJWT();
-
-    if (!jwt) {
-      this.props.history.push("/Login");
+    /*     const jwt = getJWT();
+ */ /* function tokenSuccess(err, response) {
+      if (err) {
+        throw err;
+      }
+      window.sessionStorage.accessToken = response.body.access_token;
     }
+    tokenSuccess(); */
 
-    axios
+    axios({
+      url: "/api/posts",
+      method: "POST",
+      headers: {
+        Authorization:
+          "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIn0sImlhdCI6MTU0MDQwNzI2NH0.I-d7WKzBfvJFfAdtsQ_2AJyLJ_jPMWDNB7v25N4vkvc"
+      }
+    });
+    // set
+
+    /* if (!jwt) {
+      this.props.history.push("/Login");
+    } */
+
+    /* axios
       .get("/getUser/", { headers: { Authorization: `Bearer ${jwt}` } })
       .then(res =>
         res
@@ -27,7 +44,7 @@ class AuthenticatedComponent extends Component {
             localStorage.removeItem("cool-jwt");
             this.props.history.push("/Login");
           })
-      );
+      ); */
   }
 
   render() {
