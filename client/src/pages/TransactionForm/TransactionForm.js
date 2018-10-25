@@ -1,23 +1,20 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
-import CompHistory from "../../components/History"
-import API from "../../utils/transactionAPI";
+import CompTransactionForm from "../../components/TransactionForm"
+import API from "../../utils/API";
 
-<div class="jumbotron text-center">
-    <h1>All Events</h1>
-</div>
-
-
-const History = () => (
+const TransactionForm = () => (
     <Container fluid>
       <Row>
         <Col size="md-12">
           <Jumbotron>
-            <CompHistory/>
+            <CompTransactionForm/>
           </Jumbotron>
         </Col>
       </Row>
     </Container>
 ); 
-export default History;
+
+export default TransactionForm;
+

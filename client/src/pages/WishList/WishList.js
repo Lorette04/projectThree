@@ -1,6 +1,6 @@
 // import React, { Component } from "react";
 import React from "react";
-
+import { WishLinks , WishCards } from "../../components/WishList"
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 // import API from "../../utils/API";
@@ -10,12 +10,10 @@ const WishList = () => (
     <Row>
       <Col size="md-12">
         <Jumbotron>
-          <h1>Page Under Construction</h1>
-          <h1>
-            <span role="img" aria-label="Face With Rolling Eyes Emoji">
-              🙄
-            </span>
-          </h1>
+          <div>
+            <WishLinks />
+            <WishCards />
+          </div>
         </Jumbotron>
       </Col>
     </Row>
