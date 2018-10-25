@@ -1,38 +1,30 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const Nav = () => (
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+<nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <a className="navbar-brand" href="#"><strong>Manage Your Money</strong></a>
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home/Overview <span class="sr-only">(current)</span></a>
+  <div className="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul className="navbar-nav">
+      <li className="nav-item active">
+        <Link className="nav-link" to="/pages/Overview">Overview <span className="sr-only">(current)</span></Link>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Budget</a>
+      <li className="nav-item">
+        <Link className="nav-link" to="/pages/Budget">Add Transactions</Link>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">History</a>
+      <li className="nav-item">
+        <Link className="nav-link" to="/pages/History">History</Link>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">WishList</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+      <li className="nav-item">
+        <Link className="nav-link" to="/pages/WishList"> WishList</Link>
       </li>
     </ul>
   </div>
 </nav>
-);
+  );
+ 
 
 export default Nav;

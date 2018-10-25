@@ -1,0 +1,9 @@
+form {
+margin: 25px;
+border: 10px solid rgb(42, 107, 168);
+padding: 5px;
+}
+
+.form-group {
+    margin: 10px;
+}
