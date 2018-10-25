@@ -14,7 +14,7 @@ const History = () => (
       <Row>
         <Col size="md-12">
           <Jumbotron>
-    <CompHistory/>
+            <CompHistory/>
           </Jumbotron>
         </Col>
       </Row>
