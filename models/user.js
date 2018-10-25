@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const TransactionSchema = new Schema({
-    IncExp: { type: Boolean, default: true, required: true },
+    IncExp: { type: Boolean, required: true },
     amount: { type: Number, required: true },
     category: { type: String, required: true },
     description: { type: String },
@@ -11,9 +11,17 @@ const TransactionSchema = new Schema({
 const UserSchema = new Schema({
     // id: { type: String, required: true },
     name: { type: String, required: true },
-    userName: { type: String, unique: true, required: true },
+    userName: { type: String, required: true },
     password: { type: String, required: true },
-    transactions: [TransactionSchema]
+    transactions: [{
+        type: TransactionSchema,
+        default: {
+            IncExp: true
+        }
+    }],
+    transactionHistory: [{type: Schema.transactions.id}]
+    // transactionHistory: [{type: Schema.Types.ObjectId, ref: "Transactions"}]
+
 },
 );
 
@@ -21,5 +29,4 @@ const UserSchema = new Schema({
 const UserModel = mongoose.model("UserModel", UserSchema);
 
 module.exports = UserModel;
-
 
