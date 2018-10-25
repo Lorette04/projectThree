@@ -1,24 +1,20 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
+import CompTransactionForm from "../../components/TransactionForm"
 import API from "../../utils/API";
 
-const Budget = () => (
+const TransactionForm = () => (
     <Container fluid>
       <Row>
         <Col size="md-12">
           <Jumbotron>
-            <h1>Page Under Construction</h1>
-            <h1>
-              <span role="img" aria-label="Face With Rolling Eyes Emoji">
-                🙄
-              </span>
-            </h1>
+            <CompTransactionForm/>
           </Jumbotron>
         </Col>
       </Row>
     </Container>
 ); 
 
-export default Budget;
+export default TransactionForm;
 

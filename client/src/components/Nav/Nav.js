@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const Nav = () => (
 <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -9,21 +10,21 @@ const Nav = () => (
   <div className="collapse navbar-collapse" id="navbarNavDropdown">
     <ul className="navbar-nav">
       <li className="nav-item active">
-        <a className="nav-link" href="/pages/Overview">Overview <span className="sr-only">(current)</span></a>
+        <Link className="nav-link" to="/pages/Overview">Overview <span className="sr-only">(current)</span></Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/pages/BudgetCreate">Add Transactions</a>
+        <Link className="nav-link" to="/pages/Budget">Add Transactions</Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/pages/History">History</a>
+        <Link className="nav-link" to="/pages/History">History</Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">WishList</a>
+        <Link className="nav-link" to="/pages/WishList"> WishList</Link>
       </li>
     </ul>
   </div>
 </nav>
   );
-  };
+ 
 
 export default Nav;
