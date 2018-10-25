@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ExpIncBox from "../../components/BudgetForm";
+import ExpIncBox from "../../components/Form";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/transactionAPI";
