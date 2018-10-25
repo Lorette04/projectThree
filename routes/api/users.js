@@ -2,7 +2,7 @@ const router = require("express").Router();
 const userController = require("../../controllers/userController");
 
 // Matches with "/api/"
-router.route("/")
+router.route("/Login")
   .get(userController.findAll)
   .get(userController.findById)
   .put(userController.update)
@@ -10,7 +10,7 @@ router.route("/")
 
 // Matches, updates, deletes "/api/:id"
 router
-  .route("/:id")
+  .route("/Login/:id")
   .get(userController.findById)
   .put(userController.update)
   .delete(userController.remove);
