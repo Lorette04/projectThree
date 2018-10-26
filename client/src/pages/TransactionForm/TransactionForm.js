@@ -10,11 +10,12 @@ import API from "../../utils/API";
 class TransactionForm extends Component {
 
   state = {
-    IncExp: [],
-    amount: "",
-    category: "",
-    description: "",
-    date: "",
+  transactions: []
+    // IncExp: [],
+    // amount: "",
+    // category: "",
+    // description: "",
+    // date: "",
   }
 
   handleInputChange = event => {
