@@ -14,7 +14,7 @@ class TransactionForm extends Component {
     amount: "",
     category: "",
     description: "",
-    // date: "",
+    date: "",
   }
 
   handleInputChange = event => {
@@ -26,7 +26,7 @@ class TransactionForm extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title && this.state.author) {
+    if (this.state.IncExp && this.state.amount && this.state.category && this.state.description) {
       API.saveBook({
         title: this.state.title,
         author: this.state.author,
@@ -65,7 +65,7 @@ class TransactionForm extends Component {
                 placeholder="description (required)"
               />
               <SubmitBtn
-                disabled={!(this.state.author && this.state.title)}
+                disabled={!(this.state.IncExp && this.state.amount && this.state.category && this.state.description)}
                 onClick={this.handleFormSubmit}
               >
                 Submit Transaction
