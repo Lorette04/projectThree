@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
 import {InputAmount, InputDescription, SubmitBtn, IncExp , InputCategory }from "../../components/TransactionForm"
-
+import "./TransactionForm.css";
+import {List, ListItem} from "../../components/List";
+import DeleteBtn from "../../components/DeleteBtn";
+import { Link } from "react-router-dom";
 import API from "../../utils/API";
 
 
@@ -10,11 +13,12 @@ import API from "../../utils/API";
 class TransactionForm extends Component {
 
   state = {
-    IncExp: [],
-    amount: "",
-    category: "",
-    description: "",
-    date: "",
+  transactions: []
+    // IncExp: [],
+    // amount: "",
+    // category: "",
+    // description: "",
+    // date: "",
   }
 
   handleInputChange = event => {
@@ -26,11 +30,14 @@ class TransactionForm extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.IncExp && this.state.amount && this.state.category && this.state.description) {
+    if (this.state.IncExp && this.state.amount && this.state.category && this.state.description && this.state.transactions) {
       API.saveBook({
-        title: this.state.title,
-        author: this.state.author,
-        synopsis: this.state.synopsis
+        transactions: this.state.transactions,
+        IncExp: this.state.IncExp,
+        amount: this.state.amount,
+        category: this.state.category,
+        description: this.state.description,
+        date: this.state.date
       })
         .then(res => this.loadBooks())
         .catch(err => console.log(err));
@@ -42,15 +49,16 @@ class TransactionForm extends Component {
       <Container fluid>
         <Row>
           <Col size="md-6">
-            <Jumbotron>
+
               <h1>Transaction</h1>
-            </Jumbotron>
+
             <form>
+              {/* <date></date> */}
               <InputAmount
                 value={this.state.amount}
                 onChange={this.handleInputChange}
                 name="amount"
-                placeholder="amount (required)"
+                placeholder="Amount (required)"
               />
               <InputCategory
                 value={this.state.category}
@@ -62,7 +70,7 @@ class TransactionForm extends Component {
                 value={this.state.description}
                 onChange={this.handleInputChange}
                 name="description"
-                placeholder="description (required)"
+                placeholder="Description (required)"
               />
               <SubmitBtn
                 disabled={!(this.state.IncExp && this.state.amount && this.state.category && this.state.description)}
@@ -72,9 +80,30 @@ class TransactionForm extends Component {
             </SubmitBtn>
             </form>
 
-
+          </Col>
+          <Col size="md-6 sm-12">
+        
+              <h1>Books On My List</h1>
+          
+            {this.state.transactions.length ? (
+              <List>
+                {this.state.transactions.map(transaction => (
+                  <ListItem key={transaction._id}>
+                    <Link to={"/transactions/" + transaction._id}>
+                      <strong>
+                        {transaction.title} by {transaction.author}
+                      </strong>
+                    </Link>
+                    <DeleteBtn onClick={() => this.deleteBook(transaction._id)} />
+                  </ListItem>
+                ))}
+              </List>
+             ) : (
+              <h3>No Results to Display</h3>
+            )} 
           </Col>
         </Row>
+       
       </Container>
     );
   }
