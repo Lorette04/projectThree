@@ -39,7 +39,7 @@ class Create extends Component {
     const userEmail = document.getElementById("inputEmail3").value;
     const userPassword = document.getElementById("inputPassword3").value;
     axios
-      .post("/api/login", {
+      .post("/api/createAcc", {
         email: userEmail,
         password: userPassword
       })
@@ -47,7 +47,8 @@ class Create extends Component {
         console.log(res);
         // jwt is stored in a key called jwt, res.data is the value of jwt (key value)
         localStorage.setItem("jwt", res.data);
-        this.props.history.push("/Protected");
+        /*         this.props.history.push("/Protected");
+ */
       });
   }
 

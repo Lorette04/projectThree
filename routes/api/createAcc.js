@@ -1,15 +1,11 @@
 const router = require("express").Router();
-const createAcc = require("../../controllers/createAcc.js");
+const createAcc = require("../../controllers/createAccController.js");
 
 // Matches with "/api/user"
-router
-  .route("/")
-  .get(createAcc.findAll)
-  .post(createAcc.create);
 
 router
-  .route("/create")
-  .get(createAcc.findAll)
+  .route("/")
+  .get(createAcc.findOne)
   .post(createAcc.create);
 
 /* axios
@@ -23,10 +19,10 @@ router
   }); */
 
 // Matches with "/api/user/:id"
-router
+/* router
   .route("/:id")
   .get(createAcc.findById)
   .put(createAcc.update)
-  .delete(createAcc.remove);
+  .delete(createAcc.remove); */
 
 module.exports = router;

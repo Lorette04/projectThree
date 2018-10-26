@@ -1,21 +1,21 @@
 const router = require("express").Router();
-const getToken = require("../../controllers/getToken.js");
+const getToken = require("../../controllers/getTokenController.js");
 
 // Matches with "/api/user"
-router
+/* router
   .route("/")
   .get(getToken.findAll)
-  .post(getToken.create);
+  .post(getToken.create); */
 
 router
   .route("/getToken")
-  .get(getToken.findAll)
-  .post(getToken.create);
+  /*   .get(getToken.findAll)
+ */ .post(getToken.verify);
 
-router
+/* router
   .route("/:id")
   .get(getToken.findById)
   .put(getToken.update)
-  .delete(getToken.remove);
+  .delete(getToken.remove); */
 
 module.exports = router;
