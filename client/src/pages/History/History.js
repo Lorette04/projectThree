@@ -1,11 +1,13 @@
 /* import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
+import CompHistory from "../../components/History"
 import API from "../../utils/transactionAPI";
 
 <div class="jumbotron text-center">
     <h1>All Events</h1>
 </div>
+<<<<<<< HEAD
  
 // <% if (success.length > 0) { %>
 //     <div class="alert alert-success"><%= success %></div>
@@ -41,18 +43,16 @@ import API from "../../utils/transactionAPI";
 
 //     </tbody>
 // </table>
+=======
+
+>>>>>>> development
 
 const History = () => (
     <Container fluid>
       <Row>
         <Col size="md-12">
           <Jumbotron>
-            <h1>History <br/>Page Under Construction </h1>
-            <h1>
-              <span role="img" aria-label="Face With Rolling Eyes Emoji">
-                🙄
-              </span>
-            </h1>
+            <CompHistory/>
           </Jumbotron>
         </Col>
       </Row>

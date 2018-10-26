@@ -24,12 +24,12 @@ const transactionSeed = [
     },
 
     {
-        name: "Jane Cake",
-        userName: "Cooki",
+        name: "John Dough",
+        userName: "Dojo",
         password: "1234",
         transactions: {
             IncExp: false,
-            amount: 50,
+            amount: 40,
             category: "Expenses",
             description:
                 "shoes",
@@ -39,11 +39,11 @@ const transactionSeed = [
 
     {
         name: "Jane Cake",
-        userName: "Cooki",
+        userName: "Cookie",
         password: "1234",
         transactions: {
             IncExp: false,
-            amount: 40,
+            amount: 50,
             category: "Expenses",
             description:
                 "shoes",
@@ -55,7 +55,13 @@ const transactionSeed = [
 
 db.UserModel
     .remove({})
-    .then(() => db.UserModel.collection.insertMany(transactionSeed))
+    .then(() => {
+        const promises = [];
+        for(let i = 0; i < transactionSeed.length; i++) {
+            promises.push(db.UserModel.create(transactionSeed[i]));
+        }
+        return Promise.all(promises);
+    })
     .then(data => {
         console.log(data.result.n + " records inserted!");
         process.exit(0);
