@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+/* import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
 import API from "../../utils/transactionAPI";
@@ -6,7 +6,7 @@ import API from "../../utils/transactionAPI";
 <div class="jumbotron text-center">
     <h1>All Events</h1>
 </div>
-
+ 
 // <% if (success.length > 0) { %>
 //     <div class="alert alert-success"><%= success %></div>
 // <% } %>
@@ -23,7 +23,7 @@ import API from "../../utils/transactionAPI";
 //         </tr>
 //     </thead>
 //     <tbody>
-        
+
 //         <% for (var transaction of transactions) { %>
 //             <tr>
 //                 <td><%= transaction.default %></td>
@@ -42,11 +42,6 @@ import API from "../../utils/transactionAPI";
 //     </tbody>
 // </table>
 
-
-
-
-
-
 const History = () => (
     <Container fluid>
       <Row>
@@ -63,4 +58,5 @@ const History = () => (
       </Row>
     </Container>
 ); 
-export default History;
+export default History; 
+ */

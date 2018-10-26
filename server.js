@@ -2,26 +2,26 @@ const express = require("express");
 // require jwt package
 const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-// const routes = require("./routes");
+/* const mongoose = require("mongoose");
+ */ const routes = require("./routes");
 const app = express();
-// const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// // Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 // Add routes, both API and view
-// app.use(routes);
+app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(
+/* mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist"
-);
+); */
 
 // json webtoken start
 app.get("/api", (req, res) => {
@@ -31,7 +31,7 @@ app.get("/api", (req, res) => {
 });
 
 // api route that is protected
-app.post("/api/posts", verifyToken, (req, res) => {
+/* app.post("/api/posts", verifyToken, (req, res) => {
   jwt.verify(req.token, "secretkey", (err, authData) => {
     if (err) {
       res.sendStatus(403);
@@ -42,15 +42,15 @@ app.post("/api/posts", verifyToken, (req, res) => {
       });
     }
   });
-});
+}); */
 
 // login route to get json web token
-app.post("/api/login", (req, res) => {
+/* app.post("/api/login", (req, res) => {
+  console.log("Route Hit");
   // Mock user
   const user = {
-    id: 1,
-    username: "user",
-    email: "user@gmail.com"
+    email: req.body.email,
+    password: req.body.password
   };
   // async method with a callback function and user is passed as a payload
   jwt.sign(
@@ -64,7 +64,11 @@ app.post("/api/login", (req, res) => {
       });
     }
   );
-});
+}); */
+
+/* app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+}); */
 
 // Format of the token
 // Authorization: Bearer <access_token>
@@ -91,7 +95,6 @@ function verifyToken(req, res, next) {
 // TODO next must save jwt in local storage
 
 // Start the API server
-const PORT = 8080;
 app.listen(PORT, function() {
   // console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
   console.log("app is listening on: " + PORT);

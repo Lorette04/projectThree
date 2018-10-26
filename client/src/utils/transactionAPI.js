@@ -6,9 +6,9 @@ export default {
     return axios.get("/api/history");
   },
   // Gets the transaction with the given id
-  getTransaction: function(id) {
+  /*  getTransaction: function(id) {
     return axios.get("/api/history/" + id);
-  },
+  }, */
   // Deletes the transaction with the given id
   deleteTransaction: function(id) {
     return axios.delete("/api/history/" + id);
