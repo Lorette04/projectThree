@@ -1,5 +1,5 @@
 import React from "react";
-import "./TransactionForm.css";
+// import "./TransactionForm.css";
 
 
 const CompTransactionForm = props => (

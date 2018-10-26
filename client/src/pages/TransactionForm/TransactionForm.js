@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
 import {InputAmount, InputDescription, SubmitBtn, IncExp , InputCategory }from "../../components/TransactionForm"
-import "./TransactionForm.css";
+
 import {List, ListItem} from "../../components/List";
 import DeleteBtn from "../../components/DeleteBtn";
 import { Link } from "react-router-dom";
@@ -13,12 +13,8 @@ import API from "../../utils/API";
 class TransactionForm extends Component {
 
   state = {
-    transactions: [],
-    IncExp: "",
-    amount: "",
-    category: "",
-    description: "",
-    date: "",
+    transactions: []
+
   }
 
   handleInputChange = event => {
@@ -83,7 +79,7 @@ class TransactionForm extends Component {
           </Col>
           <Col size="md-6 sm-12">
         
-              <h1>Books On My List</h1>
+              <h1>10 most recent transactions</h1>
           
             {this.state.transactions.length ? (
               <List>
@@ -99,7 +95,7 @@ class TransactionForm extends Component {
                 ))}
               </List>
              ) : (
-              <h3>No Results to Display</h3>
+              <h3>10 most recent transactions</h3>
             )} 
           </Col>
         </Row>
