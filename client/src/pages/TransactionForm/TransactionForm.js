@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
-import {InputAmount, InputDescription, SubmitBtn, IncExp  }from "../../components/TransactionForm"
+import {InputAmount, InputDescription, SubmitBtn, IncExp , InputCategory }from "../../components/TransactionForm"
 
 import API from "../../utils/API";
 
@@ -71,9 +71,6 @@ class TransactionForm extends Component {
                 Submit Transaction
             </SubmitBtn>
             </form>
-
-
-
 
 
           </Col>
