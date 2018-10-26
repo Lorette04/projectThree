@@ -13,7 +13,7 @@ const Nav = () => (
         <Link className="nav-link" to="/pages/Overview">Overview <span className="sr-only">(current)</span></Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link" to="/pages/Budget">Add Transactions</Link>
+        <Link className="nav-link" to="/pages/TransactionForm">Add Transactions</Link>
       </li>
       <li className="nav-item">
         <Link className="nav-link" to="/pages/History">History</Link>
