@@ -109,6 +109,28 @@ class Books extends Component {
               <h3>No Results to Display</h3>
             )}
           </Col>
+          {/* <Col size="md-6 sm-12">
+            <Jumbotron>
+              <h1>Books On My List</h1>
+            </Jumbotron>
+            {this.state.transactions.length ? (
+              <List>
+                {this.state.transactions.map(transactions => (
+                  <ListItem key={transaction._id}>
+                    <Link to={"/transactions/" + transaction._id}>
+                                        </Link>
+                    <DeleteBtn onClick={() => this.deleteTransaction(trans._id)} />
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+          </Col> */}
+
+
+
+
         </Row>
       </Container>
     );

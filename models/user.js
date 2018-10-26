@@ -9,9 +9,7 @@ const TransactionSchema = new Schema({
 });
 
 const UserSchema = new Schema({
-    // id: { type: String, required: true },
-    name: { type: String, required: true },
-    userName: { type: String, required: true },
+    email: { type: String, required: true },
     password: { type: String, required: true },
     transactions: [{
         type: TransactionSchema,
@@ -19,7 +17,7 @@ const UserSchema = new Schema({
             IncExp: true
         }
     }],
-    transactionHistory: [{type: Schema.transactions.id}]
+    // transactionHistory: [{type: Schema.transactions.id}]
     // transactionHistory: [{type: Schema.Types.ObjectId, ref: "Transactions"}]
 
 },
