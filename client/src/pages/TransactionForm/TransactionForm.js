@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
 import {InputAmount, InputDescription, SubmitBtn, IncExp , InputCategory }from "../../components/TransactionForm"
-
+import "./TransactionForm.css";
 import API from "../../utils/API";
 
 
@@ -42,15 +42,15 @@ class TransactionForm extends Component {
       <Container fluid>
         <Row>
           <Col size="md-6">
-            <Jumbotron>
+
               <h1>Transaction</h1>
-            </Jumbotron>
+
             <form>
               <InputAmount
                 value={this.state.amount}
                 onChange={this.handleInputChange}
                 name="amount"
-                placeholder="amount (required)"
+                placeholder="Amount (required)"
               />
               <InputCategory
                 value={this.state.category}
@@ -62,7 +62,7 @@ class TransactionForm extends Component {
                 value={this.state.description}
                 onChange={this.handleInputChange}
                 name="description"
-                placeholder="description (required)"
+                placeholder="Description (required)"
               />
               <SubmitBtn
                 disabled={!(this.state.IncExp && this.state.amount && this.state.category && this.state.description)}
