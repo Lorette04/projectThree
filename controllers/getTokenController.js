@@ -25,7 +25,8 @@ const getToken = {
           };
           console.log(obj);
         } */
-  verify: function verifyToken(req, res, next) {
+  /* verify: function verifyToken(req, res, next) {
+    console.log("Route hit");
     // Get the auth header value
     const bearerHeader = req.headers["authorization"];
     // Check if bearer is undefined
@@ -42,7 +43,7 @@ const getToken = {
       // Forbidden
       res.sendStatus(403);
     }
-  }
+  } */
 };
 module.exports = getToken;
 // json webtoken start

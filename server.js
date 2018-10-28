@@ -1,9 +1,10 @@
 const express = require("express");
 // require jwt package
-const jwt = require("jsonwebtoken");
+var jwt = require("jsonwebtoken");
+var token = jwt.sign({ foo: "bar" }, "shhhhh");
 const bodyParser = require("body-parser");
-/* const mongoose = require("mongoose");
- */ const routes = require("./routes");
+const mongoose = require("mongoose");
+const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -19,16 +20,49 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-/* mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist"
-); */
-
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/UserModel",
+  { useNewUrlParser: true }
+);
+// STARTTTT
 // json webtoken start
-app.get("/api", (req, res) => {
+/* app.get("/api", (req, res) => {
   res.json({
     message: "test"
   });
 });
+ */
+/* app.post("/api/posts", verifyToken, (req, res) => {
+  jwt.verify(req.token, "secretkey", (err, authData) => {
+    if (err) {
+      res.sendStatus(403);
+    } else {
+      res.json({
+        message: "Post created...",
+        authData
+      });
+    }
+  });
+}); */
+
+/* app.post("/api/login", (req, res) => {
+  const user = {
+    email: "tarektest@yahoo.com",
+    password: "pass"
+  };
+  jwt.sign({ user: user }, "secretkey", (err, token) => {
+    res.json({
+      token: token
+    });
+  });
+}); */
+// ENDDDD
+/*   res.json({});
+  const user = {
+    email: "tarektest@yahoo.com",
+    password: "pass"
+  };
+}); */
 
 // api route that is protected
 /* app.post("/api/posts", verifyToken, (req, res) => {
@@ -44,28 +78,6 @@ app.get("/api", (req, res) => {
   });
 }); */
 
-// login route to get json web token
-/* app.post("/api/login", (req, res) => {
-  console.log("Route Hit");
-  // Mock user
-  const user = {
-    email: req.body.email,
-    password: req.body.password
-  };
-  // async method with a callback function and user is passed as a payload
-  jwt.sign(
-    {
-      user
-    },
-    "secretkey",
-    (err, token) => {
-      res.json({
-        token
-      });
-    }
-  );
-}); */
-
 /* app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 }); */
@@ -73,8 +85,8 @@ app.get("/api", (req, res) => {
 // Format of the token
 // Authorization: Bearer <access_token>
 
-// Verify token
-function verifyToken(req, res, next) {
+// Verify token defined here
+/* function verifyToken(req, res, next) {
   // Get the auth header value
   const bearerHeader = req.headers["authorization"];
   // Check if bearer is undefined
@@ -91,7 +103,7 @@ function verifyToken(req, res, next) {
     // Forbidden
     res.sendStatus(403);
   }
-}
+}  */
 // TODO next must save jwt in local storage
 
 // Start the API server

@@ -1,6 +1,10 @@
 import React, { Component } from "react";
-import axios from "axios";
-
+import axios from "axios"; /* import jwt from "jsonwebtoken";
+ */ /* var cert = fs.readFileSync("private.key");
+ */
+/* import fs from "fs";
+ */ const jwt = require("jsonwebtoken");
+const token = jwt.sign({ foo: "bar" }, "shhhhh");
 class Create extends Component {
   /* constructor(props) {
     super(props);
@@ -13,42 +17,56 @@ class Create extends Component {
   } */
   submit(e) {
     e.preventDefault();
-    /* const userEmail = document.getElementById("inputEmail3").value;
-    const userPassword = document.getElementById("inputPassword3").value;
-    axios
-      .post("/getToken", {
-        email: this.state.email,
-        password: this.state.password
-      })
-      .then(res => {
-        localStorage.setItem("cool-jwt", res.data);
-        this.props.history.push("/Protected");
-      }); */
+    console.log("test");
   }
-  // defined here to be used later in onChange() method
-  /*   change(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  } */
-
   submitCreate(e) {
+    const jwt = require("jsonwebtoken");
     e.preventDefault();
+    console.log("testing testing");
     // console.log(`Inside create`);
     // console.log(`props: ${this.props}`);
     const userEmail = document.getElementById("inputEmail3").value;
     const userPassword = document.getElementById("inputPassword3").value;
+    axios.post("/create", (req, user, res) => {
+      // Mock user
+      console.log("I am here");
+      user = {
+        email: "tarektest@yahoo.com",
+        password: "pass"
+      };
+      console.log(user);
+      // code to generate jwt
+      jwt.sign(
+        {
+          foo: "bar"
+        },
+        function(err, token) {
+          res.json({
+            token
+          });
+          console.log(token);
+        }
+      );
+    });
+
+    axios.get("/", (req, res) => {
+      res.json({
+        message: "welcome TEST in create"
+      });
+    });
+
     axios
-      .post("/api/createAcc", {
+      .post("/create", {
         email: userEmail,
         password: userPassword
       })
       .then(res => {
         console.log(res);
+        console.log(token);
+        console.log("hello hello");
         // jwt is stored in a key called jwt, res.data is the value of jwt (key value)
-        localStorage.setItem("jwt", res.data);
-        /*         this.props.history.push("/Protected");
- */
+        localStorage.setItem("jwt", token);
+        this.props.history.push("/getToken");
       });
   }
 

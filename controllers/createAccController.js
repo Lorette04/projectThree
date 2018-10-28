@@ -7,29 +7,12 @@ const jwt = require("jsonwebtoken");
 
 const createAcc = {
   create: function(req, res) {
-    db.User.create(req.body);
+    db.UserModel.create(req.body);
   },
   findOne: function(req, res) {
-    db.User.findOne(req.body).then(
-      jwt.sign(
-        {
-          user
-        },
-        "secretkey",
-        (err, token) => {
-          res.json({
-            token
-          });
-          let obj = {
-            user,
-            token
-          };
-          console.log(obj);
-        }
-        /*         dbModel => res.json(create).catch(err => res.status(422).json(err))
- */
-      )
-    );
+    db.UserModel.findOne(req.body, function(data) {
+      res.json(data);
+    });
   }
 };
 module.exports = createAcc;

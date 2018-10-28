@@ -7,12 +7,12 @@ const getToken = require("../../controllers/getTokenController.js");
   .get(getToken.findAll)
   .post(getToken.create); */
 
-router
-  .route("/getToken")
-  /*   .get(getToken.findAll)
- */ .post(getToken.verify);
-
 /* router
+  .route("/")
+  /*   .get(getToken.findAll)
+  .post(getToken.verify); 
+
+router
   .route("/:id")
   .get(getToken.findById)
   .put(getToken.update)

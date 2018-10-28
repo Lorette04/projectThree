@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/WishList/WishList.css"],"names":[],"mappings":"AAAA,MACI,WAAY,CAGhB,KACI,UAAY","file":"static/css/main.eb83489d.css","sourcesContent":[".card {\n    margin:20px;\n}\n\n.btn {\n    margin: 5px;\n}\n\n\n\n\n// WEBPACK FOOTER //\n// ./src/components/WishList/WishList.css"],"sourceRoot":""}
