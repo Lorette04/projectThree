@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
 import {InputAmount, InputDescription, SubmitBtn, IncExp , InputCategory }from "../../components/TransactionForm"
-import "./TransactionForm.css";
+
 import {List, ListItem} from "../../components/List";
 import DeleteBtn from "../../components/DeleteBtn";
 import { Link } from "react-router-dom";
