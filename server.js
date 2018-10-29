@@ -24,6 +24,10 @@ mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/UserModel",
   { useNewUrlParser: true }
 );
+
+// verify a token symmetric - synchronous
+var decoded = jwt.verify(token, "shhhhh");
+console.log(decoded.foo); // bar
 // STARTTTT
 // json webtoken start
 /* app.get("/api", (req, res) => {

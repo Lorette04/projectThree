@@ -1,111 +1,109 @@
 import React, { Component } from "react";
-import axios from "axios";
-import {
-  ControlLabel,
-  Form,
-  FormGroup,
-  FormControl,
-  Col,
-  Checkbox,
-  Button
-} from "react-bootstrap";
+/* import axios from "axios";
+ */ const jwt = require("jsonwebtoken");
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: ""
-    };
-    this.change = this.change.bind(this);
-    this.submit = this.submit.bind(this);
-  }
+  submitLogin(e) {
+    console.log("before click");
 
-  submit(e) {
     e.preventDefault();
-    axios
-      .post("/getToken", {
-        email: this.state.email,
-        password: this.state.password
-      })
-      .then(res => {
-        localStorage.setItem("cool-jwt", res.data);
-        this.props.history.push("/Protected");
+
+    console.log("after click...");
+
+    // const token = localStorage.getItem("jwt");
+    const token = jwt.sign({ foo: "bar" }, "shhhhh");
+    console.log("jwt: " + token);
+
+    var decoded = jwt.verify(token, "shhhhh");
+    console.log(decoded);
+    console.log(decoded.foo);
+
+    // verify a token symmetric - synchronous
+    /*    var decoded = jwt.verify(token, "shhhhh");
+    console.log(decoded.foo); */ // bar
+
+    /*  // invalid token - synchronous
+    try {
+      var decoded = jwt.verify(token, "wrong-secret");
+    } catch (err) {
+      // err
+    } */
+    // Verify token defined here
+    // function verifyToken(req, res, next) {
+    //   // Get the auth header value
+    //   const bearerHeader = req.headers["authorization"];
+    //   // Check if bearer is undefined
+    //   if (typeof bearerHeader !== "undefined") {
+    //     // Split at the space
+    //     const bearer = bearerHeader.split(" ");
+    //     // Get token from array
+    //     const bearerToken = bearer[1];
+    //     // Set the token
+    //     req.token = bearerToken;
+    //     // Call next middleware
+    //     next();
+    //   } else {
+    //     // Forbidden
+    //     res.sendStatus(403);
+    //   }
+    // }
+    // axios.post("/login", verifyToken, (req, res) => {
+    //   const token = localStorage.getItem("jwt");
+
+    /*     verifyToken(token, "shhhhh", (err, authData) => {
+        if (err) {
+          res.sendStatus(403);
+        } else {
+          res.json({
+            message: "Post created...",
+            authData
+          });
+        }
       });
-  }
-  // defined here to be used later in onChange() method
-  change(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+    }); */
   }
 
   render() {
     return (
-      <div>
-        {/*  <form onSubmit={e => this.submit(e)}>
-          <label>email:</label>
-          <input
-            type="text"
-            name="email"
-            onChange={e => this.change(e)}
-            value={this.state.email}
-          />
-          <label>password:</label>
-          <input
-            type="password"
-            name="password"
-            onChange={e => this.change(e)}
-            value={this.state.password}
-          />
-          <button type="submit">Submit</button>
-        </form> */}
-        <Form horizontal>
-          <FormGroup
-            controlId="formHorizontalEmail"
-            onSubmit={e => this.submit(e)}
-            value={this.state.email}
-          >
-            <Col componentClass={ControlLabel} sm={2}>
-              Email
-            </Col>
-            <Col sm={10}>
-              <FormControl
-                type="email"
-                placeholder="Email"
-                onChange={e => this.change(e)}
-              />
-            </Col>
-          </FormGroup>
-
-          <FormGroup controlId="formHorizontalPassword">
-            <Col componentClass={ControlLabel} sm={2}>
-              Password
-            </Col>
-            <Col sm={10}>
-              <FormControl
-                type="password"
-                placeholder="Password"
-                onChange={e => this.change(e)}
-                value={this.state.password}
-              />
-            </Col>
-          </FormGroup>
-
-          <FormGroup>
-            <Col smOffset={2} sm={10}>
-              <Checkbox>Remember me</Checkbox>
-            </Col>
-          </FormGroup>
-
-          <FormGroup>
-            <Col smOffset={2} sm={10}>
-              <Button type="submit">Sign in</Button>
-            </Col>
-          </FormGroup>
-        </Form>
-        ;
-      </div>
+      <form>
+        <div className="form-group row">
+          <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">
+            Email
+          </label>
+          <div className="col-sm-10">
+            <input
+              type="email"
+              className="form-control"
+              id="inputEmail3"
+              placeholder="Email"
+            />
+          </div>
+        </div>
+        <div className="form-group row">
+          <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">
+            Password
+          </label>
+          <div className="col-sm-10">
+            <input
+              type="password"
+              className="form-control"
+              id="inputPassword3"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+        <div className="form-group row">
+          <div className="col-sm-10">
+            <button
+              type="submit"
+              className="btn btn-primary"
+              onClick={this.submitLogin}
+            >
+              Login
+            </button>
+          </div>
+        </div>
+      </form>
     );
   }
 }

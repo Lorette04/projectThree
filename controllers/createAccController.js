@@ -16,22 +16,23 @@ const createAcc = {
   }
 };
 module.exports = createAcc;
-/* app.post("/getToken", (req, res) => {
-    // Mock user
-    const user = {
-      email: req.body.email,
-      password: req.body.password
-    }; */
-// async method with a callback function and user is passed as a payload
-/* jwt.sign(
-  {
-    user
-  },
-  "secretkey",
-  (err, token) => {
-    res.json({
-      token
-    });
-  }
-); */
+/* app.post("/create", (req, res) => {
+  // Mock user
+  const user = {
+    email: req.body.email,
+    password: req.body.password
+  };
+  // async method with a callback function and user is passed as a payload
+  jwt.sign(
+    {
+      user
+    },
+    "secretkey",
+    (err, token) => {
+      res.json({
+        token
+      });
+    }
+  );
+}); */
 // login route to get json web token

@@ -2,17 +2,32 @@ const router = require("express").Router(); /* const userRoutes = require("./use
 const transactionRoutes = require("./transactions"); */
 /* const UserModel = reuire("../api/");
  */
-var jwt = require("jsonwebtoken"); /* router.use("/getToken", getToken);
- */ /* outer.use(
-  "/createAcc",
-  createAccRoutes
-); */ /* const userModel = require("./users");
- */ // Controller?? routes
+var jwt = require("jsonwebtoken");
+/* router.use("/getToken", getToken); */
+const userModel = require("./users");
+// Controller?? routes
 /* var token = jwt.sign({ foo: "bar" }, cert, { algorithm: "RS256" });
 var cert = fs.readFileSync("private.key");
-var fs = require("fs");
+var fs = require("fs"); */
 const createAccRoutes = require("./createAcc");
-const getToken = require("./getToken");  */
+const loginRoute = require("./login");
+
+router.use("/login", loginRoute);
+router.use("/create", createAccRoutes);
+module.exports = router;
+
+/* router.use("/login", (req, res) => {
+  loginRoute.verify(req.token, "shhhhh", (err, authData) => {
+    if (err) {
+      res.sendStatus(403);
+    } else {
+      res.json({
+        message: "Post created...",
+        authData
+      });
+    }
+  });
+});
 
 router.get("/", (req, res) => {
   res.json({

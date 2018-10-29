@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios"; /* import jwt from "jsonwebtoken";
- */ /* var cert = fs.readFileSync("private.key");
- */
-/* import fs from "fs";
- */ const jwt = require("jsonwebtoken");
+import axios from "axios";
+const jwt = require("jsonwebtoken");
 const token = jwt.sign({ foo: "bar" }, "shhhhh");
 class Create extends Component {
   /* constructor(props) {
@@ -22,19 +19,19 @@ class Create extends Component {
   submitCreate(e) {
     const jwt = require("jsonwebtoken");
     e.preventDefault();
-    console.log("testing testing");
+    console.log("the buton was hit");
     // console.log(`Inside create`);
     // console.log(`props: ${this.props}`);
     const userEmail = document.getElementById("inputEmail3").value;
     const userPassword = document.getElementById("inputPassword3").value;
     axios.post("/create", (req, user, res) => {
       // Mock user
-      console.log("I am here");
-      user = {
+      console.log("post request");
+      /*    user = {
         email: "tarektest@yahoo.com",
         password: "pass"
-      };
-      console.log(user);
+      }; */
+      /* console.log(this.user); */
       // code to generate jwt
       jwt.sign(
         {
@@ -66,7 +63,7 @@ class Create extends Component {
         console.log("hello hello");
         // jwt is stored in a key called jwt, res.data is the value of jwt (key value)
         localStorage.setItem("jwt", token);
-        this.props.history.push("/getToken");
+        this.props.history.push("/login");
       });
   }
 

@@ -10,14 +10,16 @@ import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 // import SignIn from "./components/SignIn/SignIn.js"
 import Create from "./components/Create";
+import Login from "./components/Login";
 
 const App = () => (
   <Router>
     <div>
       <Nav />
       <Switch>
-        {/*  <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} /> */}
+        {/*         <Route exact path="/" component={Home} />
+ */}{" "}
+        <Route exact path="/login" component={Login} />
         <Route exact path="/create" component={Create} />
         {/*   <Route exact path="/auth" component={AuthenticatedComponent} />
         <AuthenticatedComponent> */}
