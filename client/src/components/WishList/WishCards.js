@@ -12,8 +12,8 @@ export const WishCards = props => (
               <h5 class="card-title">Description: Dirt Bike</h5>
               <p class="card-text">Amount: $$</p>
               <p class="card-text">Where: Target</p>
-              <a href="#" class="btn btn-primary">Link</a>
-              <a href="#" class="btn btn-primary">Remove</a>
+              <a href="mcdonalds.com" class="btn btn-primary">Link</a>
+              <a href="mcdonalds.com" class="btn btn-primary">Remove</a>
             </div>
           </div>
         </div>
@@ -24,8 +24,8 @@ export const WishCards = props => (
               <h5 class="card-title">Description: Ps4</h5>
               <p class="card-text">Amount: $$</p>
               <p class="card-text">Where: Amazon</p>
-              <a href="#" class="btn btn-primary">Link</a>
-              <a href="#" class="btn btn-primary">Remove</a>
+              <a href="mcdonalds.com" class="btn btn-primary">Link</a>
+              <a href="mcdonalds.com" class="btn btn-primary">Remove</a>
             </div>
           </div>
         </div>
@@ -38,8 +38,8 @@ export const WishCards = props => (
               <h5 class="card-title">Description: Computer</h5>
               <p class="card-text">Amount: $$</p>
               <p class="card-text">Where: BestBuy</p>
-              <a href="#" class="btn btn-primary">Link</a>
-              <a href="#" class="btn btn-primary">Remove</a>
+              <a href="bestbuy.com" class="btn btn-primary">Link</a>
+              <a href="mcdonalds.com" class="btn btn-primary">Remove</a>
             </div>
           </div>
         </div>
@@ -50,8 +50,8 @@ export const WishCards = props => (
               <h5 class="card-title">Description: Nintendo Switch</h5>
               <p class="card-text">Amount: $$</p>
               <p class="card-text">Where: Amazon</p>
-              <a href="#" class="btn btn-primary">Link</a>
-              <a href="#" class="btn btn-primary">Remove</a>
+              <a href="target.com" class="btn btn-primary">Link</a>
+              <a href="mcdonalds.com" class="btn btn-primary">Remove</a>
             </div>
           </div>
         </div>
