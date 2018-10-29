@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 const Nav = () => (
-<nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <a className="navbar-brand" href="#"><strong>Manage Your Money</strong></a>
+<nav className="navbar navbar-expand-lg bg-info"  >
+  <Link  className="navbar-brand" to="/"><strong>Manage Your Money</strong></Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>

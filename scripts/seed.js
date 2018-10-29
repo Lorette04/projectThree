@@ -10,8 +10,7 @@ mongoose.connect(
 
 const transactionSeed = [
     {
-        name: "Jane Cake",
-        userName: "Cookie",
+        email: "janecake@Cookie.com",
         password: "1234",
         transactions: {
             IncExp: true,
@@ -24,8 +23,7 @@ const transactionSeed = [
     },
 
     {
-        name: "John Dough",
-        userName: "Dojo",
+        email: "johndough@Cake.fr",
         password: "1234",
         transactions: {
             IncExp: false,
@@ -38,8 +36,7 @@ const transactionSeed = [
     },
 
     {
-        name: "Jane Cake",
-        userName: "Cookie",
+        email: "janecake@Cookie.com",
         password: "1234",
         transactions: {
             IncExp: false,
@@ -57,7 +54,7 @@ db.UserModel
     .remove({})
     .then(() => {
         const promises = [];
-        for(let i = 0; i < transactionSeed.length; i++) {
+        for (let i = 0; i < transactionSeed.length; i++) {
             promises.push(db.UserModel.create(transactionSeed[i]));
         }
         return Promise.all(promises);
