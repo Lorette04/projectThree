@@ -3,7 +3,7 @@ import React from "react";
 
 export const WishLinks = props => (
 <div>
-<button {...props} className="btn btn-outline-primary">Target {props.children}
+<button {...props} href ="target.com" className="btn btn-outline-primary">Target {props.children}
 </button>
 <button {...props} className="btn btn-outline-secondary">Walmart {props.children}
 </button>

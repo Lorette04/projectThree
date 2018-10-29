@@ -3,7 +3,7 @@ import React from "react";
 
 
 const CompHistory = () => (
-            <div class="list-group">
+  <div class="list-group">
 
 <table class="table">
   <caption>List of users</caption>
