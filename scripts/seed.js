@@ -4,7 +4,7 @@ const db = require("../models");
 // This file empties the Transactions collection and inserts the transaction below
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/seedtransactionlist"
+  process.env.MONGODB_URI || "mongodb://localhost:27017/seedtransactionlist"
 );
 
 const transactionSeed = [
