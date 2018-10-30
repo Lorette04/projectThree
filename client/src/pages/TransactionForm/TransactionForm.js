@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
-import {InputAmount, InputDescription, SubmitBtn, IncExp , InputCategory }from "../../components/TransactionForm"
-import "./TransactionForm.css";
+import {InputAmount, InputDescription, SubmitBtn , InputCategory }from "../../components/TransactionForm"
+import TransactionAPI from "../../utils/transactionAPI"
 import {List, ListItem} from "../../components/List";
 import DeleteBtn from "../../components/DeleteBtn";
 import { Link } from "react-router-dom";
@@ -13,13 +13,34 @@ import API from "../../utils/API";
 class TransactionForm extends Component {
 
   state = {
-  transactions: []
-    // IncExp: [],
-    // amount: "",
-    // category: "",
-    // description: "",
-    // date: "",
+  transactions: [],
+    // radio: "option1",
+    amount: "",
+    category: "",
+    description: "",
+    
   }
+
+  componentDidMount() {
+    this.loadTransaction();
+  }
+
+  loadTransaction = () => {
+    TransactionAPI.getTransactions()
+      .then(res =>{
+console.log(res.data)
+        this.setState({ transactions: res.data, amount: "", category: "", description: "" })}
+      )
+      .catch(err => console.log(err));
+  };
+
+  handleOption=(event) =>{
+  
+    this.setState({
+      radio: event.target.value
+    })
+    console.log(this.state.radio);
+}
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -30,19 +51,21 @@ class TransactionForm extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.IncExp && this.state.amount && this.state.category && this.state.description && this.state.transactions) {
-      API.saveBook({
-        transactions: this.state.transactions,
-        IncExp: this.state.IncExp,
+    if ( this.state.amount && this.state.category && this.state.description ) {
+      TransactionAPI.saveTransaction({
+        
+        IncExp: this.state.radio,
         amount: this.state.amount,
         category: this.state.category,
         description: this.state.description,
-        date: this.state.date
+      
       })
-        .then(res => this.loadBooks())
+        .then(res => this.loadTransaction())
         .catch(err => console.log(err));
     }
   };
+
+
 
   render() {
     return (
@@ -53,7 +76,23 @@ class TransactionForm extends Component {
               <h1>Transaction</h1>
 
             <form>
-              {/* <date></date> */}
+            <div>
+        <div className="form-check">
+          <input onClick={this.handleOption} className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"/>
+          <label className="form-check-label" for="exampleRadios1">
+            Income
+          </label>
+        </div>
+        <div className="form-check">
+          <input  onClick={this.handleOption} className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"/>
+          <label className="form-check-label" for="exampleRadios2">
+            Expense
+          </label>
+        </div>
+
+      </div>
+
+      
               <InputAmount
                 value={this.state.amount}
                 onChange={this.handleInputChange}
@@ -73,7 +112,7 @@ class TransactionForm extends Component {
                 placeholder="Description (required)"
               />
               <SubmitBtn
-                disabled={!(this.state.IncExp && this.state.amount && this.state.category && this.state.description)}
+                // disabled={!(this.state.transaction && this.state.IncExp && this.state.amount && this.state.category && this.state.description)}
                 onClick={this.handleFormSubmit}
               >
                 Submit Transaction
@@ -83,7 +122,7 @@ class TransactionForm extends Component {
           </Col>
           <Col size="md-6 sm-12">
         
-              <h1>Books On My List</h1>
+              <h1>Recent Activities </h1>
           
             {this.state.transactions.length ? (
               <List>
@@ -91,10 +130,10 @@ class TransactionForm extends Component {
                   <ListItem key={transaction._id}>
                     <Link to={"/transactions/" + transaction._id}>
                       <strong>
-                        {transaction.title} by {transaction.author}
+                     {transaction.radio} by {transaction.amount} by {transaction.category} by {transaction.description}
                       </strong>
                     </Link>
-                    <DeleteBtn onClick={() => this.deleteBook(transaction._id)} />
+                    <DeleteBtn onClick={() => this.deleteTransaction(transaction._id)} />
                   </ListItem>
                 ))}
               </List>

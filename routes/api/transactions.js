@@ -8,13 +8,13 @@ router.route("/Overview")
 
   // Matches, updates, deletes "/api/transactions/:id"
 router.route("/TransactionForm/:id")
-  .get(transactionsController.findById)
+
   .put(transactionsController.update)
   .delete(transactionsController.remove);
 
   // Creates expense or income "/api/transactions"
 router.route("/AddTransaction")
-.get(transactionsController.findById)
+
 .post(transactionsController.create)
 .put(transactionsController.update)
 .delete(transactionsController.remove);
@@ -22,6 +22,6 @@ router.route("/AddTransaction")
 // Matches with "/api/history"
 router.route("/History")
   .get(transactionsController.findAll)
-  .get(transactionsController.findById)
+
 
 module.exports = router;
