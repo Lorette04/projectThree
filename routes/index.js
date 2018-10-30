@@ -12,8 +12,8 @@ router.route("/login").get(loginController.findOne);
 
 // jwt post request
 router.post(
-  "/create",
-  verifyTokenController.verifyToken,
+  "/ntroller.verifyTokencreate",
+  verifyTokenCo,
   loginController.findOne /* ,
   res.redirect("/login") */
 );
