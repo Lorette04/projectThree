@@ -10,14 +10,28 @@ import API from "../../utils/transactionAPI";
 
 
 const History = () => (
-    <Container fluid>
-      <Row>
-        <Col size="md-12">
-          <Jumbotron>
-            <CompHistory/>
-          </Jumbotron>
-        </Col>
-      </Row>
+
+<div>
+  <Container fluid>
+
+    <Row>
+      <Col size="md-12">
+ <h1>September</h1>
+        <CompHistory/>
+         
+      </Col>
+    </Row>
+
+
+    <Row>
+      <Col size="md-12">
+      <h1>October</h1>
+        <CompHistory/>
+         
+      </Col>
+    </Row>
+
     </Container>
+  </div>
 ); 
 export default History;
