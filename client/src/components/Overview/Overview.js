@@ -2,30 +2,30 @@ import React from "react";
 
 const ComponentOverview = props => (
 
-  <div class="card">
-    <h5 class="card-header">Overview</h5>
-    <div class="card-body">
+  <div className="card">
+    <h5 className="card-header">Overview</h5>
+    <div className="card-body">
 
 
 
-      <div class="row">
+      <div className="row">
 
-        <div class="col-md">
-          <h1 class="card-title">Total Balance: $$</h1>
-          <h5 class="card-title">Total Incomes: $$</h5>
-          <h5 class="card-title">Total Expenses: -$$</h5>
-          <h5 class="card-title">Total Savings: $$</h5>
+        <div className="col-md">
+          <h1 className="card-title">Total Balance: $$</h1>
+          <h5 className="card-title">Total Incomes: $$</h5>
+          <h5 className="card-title">Total Expenses: -$$</h5>
+          <h5 className="card-title">Total Savings: $$</h5>
         </div>
-        <div class="col-md">
-          <h1 class="card-title">Monthly Balance: $$</h1>
-          <h5 class="card-title">Incomes: $$</h5>
-          <h5 class="card-title">Expenses: -$$</h5>
-          <h5 class="card-title">Savings: $$</h5>
+        <div className="col-md">
+          <h1 className="card-title">Monthly Balance: $$</h1>
+          <h5 className="card-title">Incomes: $$</h5>
+          <h5 className="card-title">Expenses: -$$</h5>
+          <h5 className="card-title">Savings: $$</h5>
         </div>
       </div>
 
 
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <a href="" className="btn btn-primary">Go To History</a>
 
     </div>
   </div>

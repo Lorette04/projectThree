@@ -6,18 +6,26 @@ import Jumbotron from "../../components/Jumbotron";
 // import API from "../../utils/API";
 
 const WishList = () => (
+
+
+  <div>
+  <Jumbotron>
+    <h1>WishList</h1>
+  </Jumbotron>
   <Container fluid>
     <Row>
       <Col size="md-12">
-        <Jumbotron>
+      
           <div>
             <WishLinks />
             <WishCards />
-          </div>
-        </Jumbotron>
+          </div>     
+
       </Col>
     </Row>
   </Container>
+</div>
+
 );
 
 
