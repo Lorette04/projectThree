@@ -4,9 +4,13 @@ import "./Login.css";
 const Login = () => {
     return(
 <div class="container">
+<br/>
+<br/><br/>
+<h1 align="center"> MANAGE YOUR VIRTUAL PIGGY</h1>
         <div id="login-row" class="row justify-content-center align-items-center">
             <div id="login-column" class="col-md-6">
                 <div class="box">
+                
                     <div class="shape1"></div>
                     <div class="shape2"></div>
                     <div class="shape3"></div>
@@ -24,8 +28,8 @@ const Login = () => {
                                 <label for="password" class="text-white">Password:</label><br/>
                                 <input type="text" name="password" id="password" class="form-control" />
                             </div>
-                            <div class="form-group">
-                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit" />
+                            <div class="form-group"> 
+                            <h1 align="center"><a  href="http://localhost:3000/pages/Overview" className="btn btn-primary" >Submit</a></h1>
                             </div>
                         </form>
                     </div>

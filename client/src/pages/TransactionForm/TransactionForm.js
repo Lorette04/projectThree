@@ -6,7 +6,7 @@ import TransactionAPI from "../../utils/transactionAPI"
 import {List, ListItem} from "../../components/List";
 import DeleteBtn from "../../components/DeleteBtn";
 import { Link } from "react-router-dom";
-import API from "../../utils/API";
+
 
 
 
@@ -39,7 +39,7 @@ console.log(res.data)
     this.setState({
       radio: event.target.value
     })
-    console.log(this.state.radio);
+    // console.log(this.state.radio);
 }
 
   handleInputChange = event => {
@@ -54,13 +54,15 @@ console.log(res.data)
     if ( this.state.amount && this.state.category && this.state.description ) {
       TransactionAPI.saveTransaction({
         
-        IncExp: this.state.radio,
+        // IncExp: this.state.radio,
         amount: this.state.amount,
         category: this.state.category,
         description: this.state.description,
       
       })
-        .then(res => this.loadTransaction())
+        .then(res => 
+          this.loadTransaction()
+          )
         .catch(err => console.log(err));
     }
   };
@@ -130,7 +132,7 @@ console.log(res.data)
                   <ListItem key={transaction._id}>
                     <Link to={"/transactions/" + transaction._id}>
                       <strong>
-                     {transaction.radio} by {transaction.amount} by {transaction.category} by {transaction.description}
+                     {transaction.IncExp} by {transaction.amount} by {transaction.category} by {transaction.description}
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => this.deleteTransaction(transaction._id)} />

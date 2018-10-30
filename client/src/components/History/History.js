@@ -23,14 +23,14 @@ const CompHistory = () => (
       <td>Expense</td>
       <td>Shoes</td>
       <td>Oct 13 2018</td>
-      <td>$299.73</td>
+      <td>$99.73</td>
     </tr>
     <tr class="table-danger">
       <th scope="row">2</th>
       <td>Expense</td>
       <td>Shirt</td>
       <td>Oct 13 2018</td>
-      <td>$99.73</td>
+      <td>$9.73</td>
     </tr>
     <tr class="table-info">
       <th scope="row">3</th>
