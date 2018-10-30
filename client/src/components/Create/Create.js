@@ -17,43 +17,21 @@ class Create extends Component {
     console.log("test");
   }
   submitCreate(e) {
-    const jwt = require("jsonwebtoken");
     e.preventDefault();
     console.log("the buton was hit");
     // console.log(`Inside create`);
     // console.log(`props: ${this.props}`);
     const userEmail = document.getElementById("inputEmail3").value;
     const userPassword = document.getElementById("inputPassword3").value;
-    axios.post("/create", (req, user, res) => {
-      // Mock user
-      console.log("post request");
-      /*    user = {
-        email: "tarektest@yahoo.com",
-        password: "pass"
-      }; */
-      /* console.log(this.user); */
-      // code to generate jwt
-      jwt.sign(
-        {
-          foo: "bar"
-        },
-        function(err, token) {
-          res.json({
-            token
-          });
-          console.log(token);
-        }
-      );
-    });
 
-    axios.get("/", (req, res) => {
+    /*     axios.get("/", (req, res) => {
       res.json({
         message: "welcome TEST in create"
       });
     });
-
+ */
     axios
-      .post("/create", {
+      .post("/api/create", {
         email: userEmail,
         password: userPassword
       })

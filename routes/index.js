@@ -1,11 +1,23 @@
-const path = require("path");
 const router = require("express").Router();
-const apiRoutes = require("./api");
+const path = require("path");
+const loginController = require("../controllers/loginController");
+const createAcc = require("../controllers/createAccController");
+const verifyTokenController = require("../controllers/verifyTokenController");
 
-// API Routes
-router.use("/api", apiRoutes);
+router.route("/api/create").post(createAcc.create);
+// .post(createAcc.create);
 
-// If no API routes are hit, send the React app
+router.route("/login").get(loginController.findOne);
+// .post(loginController.create);
+
+// jwt post request
+router.post(
+  "/create",
+  verifyTokenController.verifyToken,
+  loginController.findOne /* ,
+  res.redirect("/login") */
+);
+
 router.use(function(req, res) {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });

@@ -1,21 +1,24 @@
 const db = require("../models");
-const jwt = require("jsonwebtoken");
 // const obj = {
 //   // ...
 // };
 // module.exports = obj;
-
-const createAcc = {
+module.exports = {
   create: function(req, res) {
-    db.UserModel.create(req.body);
-  },
-  findOne: function(req, res) {
-    db.UserModel.findOne(req.body, function(data) {
-      res.json(data);
-    });
+    db.UserModel.create(req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
 };
-module.exports = createAcc;
+/*  create: function(req, res) {
+    console.log("CREATE USER ACCOUNT ROUTE FOR POST HAS BEEN REACHED!");
+    db.UserModel.create(req.body, function(err, small) {
+      if (err) return handleError(err);
+      console.log("HEY HEY HEY: a successful user account has been created");
+    });
+  }
+}; */
+/* module.exports = createAcc; */
 /* app.post("/create", (req, res) => {
   // Mock user
   const user = {
