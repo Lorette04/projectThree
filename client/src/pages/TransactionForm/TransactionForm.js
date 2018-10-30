@@ -91,6 +91,8 @@ console.log(res.data)
         </div>
 
       </div>
+
+      
               <InputAmount
                 value={this.state.amount}
                 onChange={this.handleInputChange}
