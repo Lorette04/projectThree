@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
-import {InputAmount, InputDescription, SubmitBtn, Choice , InputCategory }from "../../components/TransactionForm"
+import {InputAmount, InputDescription, SubmitBtn , InputCategory }from "../../components/TransactionForm"
 import TransactionAPI from "../../utils/transactionAPI"
 import {List, ListItem} from "../../components/List";
 import DeleteBtn from "../../components/DeleteBtn";
@@ -18,8 +18,21 @@ class TransactionForm extends Component {
     amount: "",
     category: "",
     description: "",
-    date: "",
+    
   }
+
+  componentDidMount() {
+    this.loadTransaction();
+  }
+
+  loadTransaction = () => {
+    TransactionAPI.getTransactions()
+      .then(res =>{
+console.log(res.data)
+        this.setState({ transactions: res.data, amount: "", category: "", description: "" })}
+      )
+      .catch(err => console.log(err));
+  };
 
   handleOption=(event) =>{
   
@@ -38,19 +51,21 @@ class TransactionForm extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.IncExp && this.state.amount && this.state.category && this.state.description && this.state.transactions) {
+    if ( this.state.amount && this.state.category && this.state.description ) {
       TransactionAPI.saveTransaction({
-        transactions: this.state.transactions,
+        
         IncExp: this.state.radio,
         amount: this.state.amount,
         category: this.state.category,
         description: this.state.description,
-        date: this.state.date
+      
       })
-        .then(res => this.loadBooks())
+        .then(res => this.loadTransaction())
         .catch(err => console.log(err));
     }
   };
+
+
 
   render() {
     return (
@@ -95,7 +110,7 @@ class TransactionForm extends Component {
                 placeholder="Description (required)"
               />
               <SubmitBtn
-                disabled={!(this.state.IncExp && this.state.amount && this.state.category && this.state.description)}
+                // disabled={!(this.state.transaction && this.state.IncExp && this.state.amount && this.state.category && this.state.description)}
                 onClick={this.handleFormSubmit}
               >
                 Submit Transaction
@@ -113,10 +128,10 @@ class TransactionForm extends Component {
                   <ListItem key={transaction._id}>
                     <Link to={"/transactions/" + transaction._id}>
                       <strong>
-                        {transaction.title} by {transaction.author}
+                     {transaction.radio} by {transaction.amount} by {transaction.category} by {transaction.description}
                       </strong>
                     </Link>
-                    <DeleteBtn onClick={() => this.deleteBook(transaction._id)} />
+                    <DeleteBtn onClick={() => this.deleteTransaction(transaction._id)} />
                   </ListItem>
                 ))}
               </List>
