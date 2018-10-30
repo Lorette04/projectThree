@@ -9,15 +9,17 @@ const WishList = () => (
 
 
   <div>
-  <Jumbotron>
-    <h1>WishList</h1>
-  </Jumbotron>
+<br/><br/>
+    <h1 align="center">WishList</h1>
+<br/><br/>
+
   <Container fluid>
     <Row>
       <Col size="md-12">
       
           <div>
             <WishLinks />
+            <br/><br/>
             <WishCards />
           </div>     
 

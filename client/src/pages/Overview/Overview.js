@@ -5,17 +5,24 @@ import ComponentOverview from "../../components/Overview";
 import API from "../../utils/API";
 
 const Overview = () => (
+  <div>
+  <br/>
+    <h1 align="center">Overview</h1>
+<br/>
+
     <Container fluid>
       <Row>
         <Col size="md-12">
-          <Jumbotron>
+          
             <div>
               <ComponentOverview/>
             </div>
-          </Jumbotron>
+       
         </Col>
       </Row>
     </Container>
+    </div>
+    
 ); 
 
 export default Overview;
